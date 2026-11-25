@@ -35,6 +35,21 @@
     <p>Status: in-transit</p>
     <p>Destination: Amman</p>
 </div>
+<script>
 
+    const parcels = [{id:"PF-12", destination:"Amman", status:"in_transit"},{id:"PF-14", destination:"Aqaba", status:"pending"}, {id:"PF-17", destination:"Zarqa", status:"delivered"}, {id:"PF-19", destination:"Irbid", status:"delivered"}, {id:"PF-45", destination:"Salt", status:"pending"}];
+    function getInTransit(parcels) {
+  return parcels.filter(p => p.status === "in_transit");
+}
+
+function getLabels(parcels) {
+return parcels.map(d => d.id + " → "+ d.destination);
+
+}
+    console.log(getInTransit(parcels));
+    console.log(getLabels(parcels));
+
+
+</script>
 </body>
 </html>

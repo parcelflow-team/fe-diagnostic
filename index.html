@@ -35,11 +35,21 @@
     <p>Status: in-transit</p>
     <p>Destination: Amman</p>
 </div>
+
+<section>
+    <input type="text" name="Tracking_number" id="parcel_name">
+    <button id="parcel_button">Add</button>
+    <ul id="parcel_list"></ul>
+</section>
+
+<div id="Fetch"></div>
+
+
 <script>
 
     const parcels = [{id:"PF-12", destination:"Amman", status:"in_transit"},{id:"PF-14", destination:"Aqaba", status:"pending"}, {id:"PF-17", destination:"Zarqa", status:"delivered"}, {id:"PF-19", destination:"Irbid", status:"delivered"}, {id:"PF-45", destination:"Salt", status:"pending"}];
     function getInTransit(parcels) {
-  return parcels.filter(p => p.status === "in_transit");
+    return parcels.filter(p => p.status === "in_transit");
 }
 
 function getLabels(parcels) {
@@ -48,6 +58,31 @@ return parcels.map(d => d.id + " → "+ d.destination);
 }
     console.log(getInTransit(parcels));
     console.log(getLabels(parcels));
+
+    const input = document.getElementById("parcel_name");
+    const addbtn = document.getElementById("parcel_button");
+    const list = document.getElementById("parcel_list");
+    document.getElementById("Fetch");
+    
+
+    addbtn.addEventListener("click", function(){
+        const text = input.value;
+        if( text !== "") {
+            const li = document.createElement("li");
+            li.textContent = text;
+            list.appendChild(li);
+            input.value = "";}
+    });
+        const newparcels = [...parcels,{id:"PF-77", destination:"madaba", status:"in_transit"}];
+        const newlist = newparcels.map((parcels) => {
+        const {id, status} = parcels;
+        return `${id}: ${status}`;  
+        });
+        console.log(newlist);
+        console.log(parcels[0].address?.city);
+
+    
+        
 
 
 </script>

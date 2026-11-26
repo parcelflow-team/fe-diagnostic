@@ -1,0 +1,19 @@
+.parcel-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    color: white;
+    font-size: 26px;
+    font-family: 'Times New Roman';
+}
+
+.parcel-card h3,
+.parcel-card p {
+    padding: 20px;
+    border-radius: 12px;
+    margin: 0%;
+    background-color: #1e293b;
+    text-align: center;
+}
